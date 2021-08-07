@@ -14,8 +14,9 @@ var music_volume = [	-10,	#0
 						-20,	#1
 						-10]	#2
 
-var screens = [	"res://Src/Scenes/Test01.tscn", #0
-				"res://Src/Scenes/Test02.tscn"] #1
+var screens = [	"res://Src/Scenes/Menu.tscn",	#0
+				"res://Src/Scenes/Test01.tscn", #1
+				"res://Src/Scenes/Test02.tscn"] #2
 
 var save_id = 0
 var current_screen = 0

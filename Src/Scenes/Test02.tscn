@@ -25,6 +25,7 @@ format = 1
 
 [node name="Warp" parent="." instance=ExtResource( 4 )]
 position = Vector2( 160, 32 )
+teleport_id = 1
 spawn_point = Vector2( 440, 480 )
 
 [node name="PlayerSpawn" type="Node2D" parent="."]

@@ -1,40 +1,76 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Src/Scripts/Menu.gd" type="Script" id=1]
+[ext_resource path="res://Src/Scripts/Screen.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/Blocks.tres" type="TileSet" id=2]
+[ext_resource path="res://Assets/Sprites/Spikes.tres" type="TileSet" id=5]
+[ext_resource path="res://Src/Objects/Warp.tscn" type="PackedScene" id=6]
 
-[node name="Menu" type="Node2D"]
+[sub_resource type="GDScript" id=1]
+script/source = "extends Area2D
+
+
+func _ready():
+	pass
+
+
+func _on_WarpLoad_body_entered(body):
+	Global.teleport(Global.save_id, Global.save_position)
+"
+
+[node name="Screen" type="Node2D"]
 script = ExtResource( 1 )
+ScreenID = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 800.0
-margin_bottom = 612.0
+[node name="Blocks" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65531, 1, 0, -65530, 1, 0, -65529, 1, 0, -65528, 1, 0, -65527, 1, 0, -65526, 1, 0, -65525, 1, 0, -65524, 1, 0, -65523, 1, 0, -65522, 1, 0, -65521, 1, 0, -65520, 1, 0, -65519, 1, 0, -65518, 1, 0, -65517, 1, 0, -65516, 1, 0, -65515, 1, 0, -65514, 1, 0, -65513, 1, 0, -65512, 1, 0, -65511, 1, 0, 65535, 1, 0, 25, 1, 0, 131071, 1, 0, 65561, 1, 0, 196607, 1, 0, 131097, 1, 0, 262143, 1, 0, 196633, 1, 0, 327679, 1, 0, 262169, 1, 0, 393215, 1, 0, 327705, 1, 0, 458751, 1, 0, 393241, 1, 0, 524287, 1, 0, 458777, 1, 0, 589823, 1, 0, 524313, 1, 0, 655359, 1, 0, 589849, 1, 0, 720895, 1, 0, 655385, 1, 0, 786431, 1, 0, 720921, 1, 0, 851967, 1, 0, 786457, 1, 0, 917503, 1, 0, 851993, 1, 0, 983039, 1, 0, 917529, 1, 0, 1048575, 1, 0, 983065, 1, 0, 1114111, 1, 0, 1048601, 1, 0, 1179647, 1, 0, 1114137, 1, 0, 1245183, 1, 0, 1179648, 1, 0, 1179649, 1, 0, 1179650, 1, 0, 1179651, 1, 0, 1179652, 1, 0, 1179653, 1, 0, 1179654, 1, 0, 1179655, 1, 0, 1179656, 1, 0, 1179657, 1, 0, 1179658, 1, 0, 1179659, 1, 0, 1179660, 1, 0, 1179661, 1, 0, 1179662, 1, 0, 1179663, 1, 0, 1179664, 1, 0, 1179665, 1, 0, 1179666, 1, 0, 1179667, 1, 0, 1179668, 1, 0, 1179669, 1, 0, 1179670, 1, 0, 1179671, 1, 0, 1179672, 1, 0, 1179673, 1, 0 )
+
+[node name="Spikes" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 2
+collision_mask = 2
+format = 1
+
+[node name="DebugLabel" type="Label" parent="."]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 104.0
+margin_bottom = 78.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
-margin_right = 800.0
-margin_bottom = 304.0
-rect_min_size = Vector2( 0, 304 )
+[node name="WarpNew" parent="." instance=ExtResource( 6 )]
+position = Vector2( 288, 512 )
+teleport_id = 1
+spawn_point = Vector2( 416, 512 )
 
-[node name="Label" type="Label" parent="VBoxContainer/CenterContainer"]
-margin_left = 306.0
-margin_top = 145.0
-margin_right = 493.0
-margin_bottom = 159.0
-text = "I Wanna Be the Godot Engine"
+[node name="Label" type="Label" parent="WarpNew"]
+margin_top = -15.0
+margin_right = 40.0
+margin_bottom = -1.0
+text = "New"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
-margin_top = 308.0
-margin_right = 800.0
-margin_bottom = 612.0
-rect_min_size = Vector2( 0, 304 )
+[node name="WarpLoad" parent="." instance=ExtResource( 6 )]
+position = Vector2( 512, 512 )
+script = SubResource( 1 )
 
-[node name="Label" type="Label" parent="VBoxContainer/CenterContainer2"]
-margin_left = 331.0
-margin_top = 145.0
-margin_right = 468.0
-margin_bottom = 159.0
-text = "Press \"Shoot\" to start"
+[node name="Label" type="Label" parent="WarpLoad"]
+margin_top = -15.0
+margin_right = 40.0
+margin_bottom = -1.0
+text = "Load"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerSpawn" type="Node2D" parent="."]
+position = Vector2( 416, 512 )
+
+[connection signal="body_entered" from="WarpLoad" to="WarpLoad" method="_on_WarpLoad_body_entered"]

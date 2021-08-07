@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="I Wanna Be the Godot Engine"
-run/main_scene="res://Src/Scenes/Menu.tscn"
+run/main_scene="res://Src/Scenes/Title.tscn"
 boot_splash/image="res://Splash.png"
 config/icon="res://icon.png"
 config/macos_native_icon="res://Icon.icns"
