@@ -7,8 +7,8 @@ export var ScreenID : int
 
 var player
 
-func _ready():
-	player_spawn.position = Global.save_position
+func spawn(_position: Vector2):
+	player_spawn.position = _position
 	player = player_scene.instance()
 	player.position = player_spawn.position
 	add_child(player)

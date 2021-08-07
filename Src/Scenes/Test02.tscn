@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Sprites/Blocks.tres" type="TileSet" id=1]
 [ext_resource path="res://Assets/Sprites/Spikes.tres" type="TileSet" id=2]
 [ext_resource path="res://Src/Scripts/Screen.gd" type="Script" id=3]
 [ext_resource path="res://Src/Objects/Warp.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Src/Objects/Save.tscn" type="PackedScene" id=5]
 
 [node name="Screen" type="Node2D"]
 script = ExtResource( 3 )
@@ -27,3 +28,6 @@ position = Vector2( 160, 32 )
 spawn_point = Vector2( 440, 480 )
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
+
+[node name="Save" parent="." instance=ExtResource( 5 )]
+position = Vector2( 192, 416 )

@@ -20,11 +20,11 @@ margin_bottom = 304.0
 rect_min_size = Vector2( 0, 304 )
 
 [node name="Label" type="Label" parent="VBoxContainer/CenterContainer"]
-margin_left = 386.0
+margin_left = 306.0
 margin_top = 145.0
-margin_right = 414.0
+margin_right = 493.0
 margin_bottom = 159.0
-text = "Title"
+text = "I Wanna Be the Godot Engine"
 
 [node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
 margin_top = 308.0

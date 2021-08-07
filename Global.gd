@@ -18,6 +18,7 @@ var screens = [	"res://Src/Scenes/Test01.tscn", #0
 				"res://Src/Scenes/Test02.tscn"] #1
 
 var save_id = 0
+var current_screen = 0
 var save_position = Vector2(440,480)
 var deaths = 0
 
@@ -42,19 +43,16 @@ func die(body):
 
 func _input(event):
 	if event.is_action_pressed("restart"):
-		var new_scene = screens[save_id]
-		get_tree().change_scene(new_scene)
-		death_music.stop()
-		bgm.stream_paused = false
-		DeathScreen.visible = false
+		reload()
 
-func teleport(scene, position):
-	save_id = scene
-	save_position = position
-	save()
-	get_tree().change_scene(screens[scene])
+func teleport(_screen, _position):
+	get_tree().change_scene(screens[_screen])
+	yield(get_tree().create_timer(0.1), "timeout")
+	current_screen = _screen
+	get_node("/root/Screen").spawn(_position)
 
 func save():
+	save_id = current_screen
 	var save_data = {
 		"save_id" : save_id,
 		"save_position_x" : save_position.x,
@@ -77,4 +75,12 @@ func load_game():
 	deaths = int(load_data["deaths"])
 	
 	save_file.close()
-	teleport(save_id, save_position)
+
+func reload():
+	var new_scene = screens[save_id]
+	get_tree().change_scene(new_scene)
+	yield(get_tree().create_timer(0.1), "timeout")
+	get_node("/root/Screen").spawn(save_position)
+	death_music.stop()
+	bgm.stream_paused = false
+	DeathScreen.visible = false

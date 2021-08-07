@@ -46,6 +46,7 @@ teleport_id = 1
 spawn_point = Vector2( 128, 512 )
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
+position = Vector2( 416, 512 )
 
 [node name="Save" parent="." instance=ExtResource( 3 )]
 position = Vector2( 256, 320 )
