@@ -76,7 +76,7 @@ func get_input():
 			jump_sound.play()
 	
 	if Input.is_action_just_released("jump") and velocity.y < -100:
-		velocity.y = -100
+		velocity.y = -130
 	
 	if Input.is_action_just_pressed("shoot"):
 		if bullets < max_bullets:
