@@ -12,3 +12,4 @@ stream = ExtResource( 2 )
 
 [node name="DeathMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
+volume_db = -10.0

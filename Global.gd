@@ -45,6 +45,12 @@ func die(body):
 func _input(event):
 	if event.is_action_pressed("restart"):
 		reload()
+	
+	if event.is_action_pressed("reload_game"):
+		get_tree().change_scene("res://Src/Scenes/Title.tscn")
+	
+	if event.is_action_pressed("self_kill"):
+		die(get_tree().current_scene.get_node("Player"))
 
 func teleport(_screen, _position):
 	get_tree().change_scene(screens[_screen])
@@ -78,6 +84,7 @@ func load_game():
 	save_file.close()
 
 func reload():
+	current_screen = save_id
 	var new_scene = screens[save_id]
 	get_tree().change_scene(new_scene)
 	yield(get_tree().create_timer(0.1), "timeout")
