@@ -4,9 +4,9 @@ var h_speed = 150
 var direction = 1
 
 var MAX_FALL_SPEED = 400
-var gravity = 1200
-var jump_force = -440
-var double_jump_force = -372
+var gravity = 1100
+var jump_force = -415
+var double_jump_force = -363
 
 var jumping = true
 var double_jump = true
@@ -76,7 +76,7 @@ func get_input():
 			jump_sound.play()
 	
 	if Input.is_action_just_released("jump") and velocity.y < -100:
-		velocity.y = -130
+		velocity.y = -110
 	
 	if Input.is_action_just_pressed("shoot"):
 		if bullets < max_bullets:
