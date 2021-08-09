@@ -4,9 +4,9 @@ var h_speed = 150
 var direction = 1
 
 var MAX_FALL_SPEED = 400
-var gravity = 800
-var jump_force = -360
-var double_jump_force = -303
+var gravity = 1200
+var jump_force = -440
+var double_jump_force = -372
 
 var jumping = true
 var double_jump = true
