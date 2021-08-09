@@ -43,7 +43,7 @@ func die(body):
 	new_death_particles.emitting = true
 
 func _input(event):
-	if event.is_action_pressed("restart"):
+	if event.is_action_pressed("restart") and not (get_tree().current_scene.filename == "res://Src/Scenes/Title.tscn" or get_tree().current_scene.filename == "res://Src/Scenes/Menu.tscn"):
 		reload()
 	
 	if event.is_action_pressed("reload_game"):
