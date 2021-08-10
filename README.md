@@ -9,7 +9,7 @@ open source godot project made as a framework for [I Wanna Be The Guy fangames](
 - Guy shot
 - Guy animations
 - Saves (Only 1 save file)
-- Teleports (game saves on teleport)
+- Teleports
 - Music and sounds
 - Main screen
 - Death screen with blood splash

@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/Sprites/Killers/Up.png" type="Texture" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 0.985245, 30.9937, 15.9784, 2.04591, 30.9716, 31.0586 )
+points = PoolVector2Array( 0, 32, 15.9744, 0, 32, 32 )
 
 [resource]
 0/name = "Up.png 0"
