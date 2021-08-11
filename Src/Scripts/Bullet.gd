@@ -14,7 +14,9 @@ func _physics_process(delta):
 	position.x += speed * delta
 
 
+var parent : Node = null
 func _on_Bullet_body_entered(body):
 	if not body.name == "Player":
-		get_parent().get_node("Player").bullets -= 1
-		get_parent().remove_child(self)
+		if is_instance_valid(parent):
+			parent.bullets -= 1
+			get_parent().remove_child(self)

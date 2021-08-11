@@ -23,10 +23,15 @@ Global="*res://Global.gd"
 Music="*res://BGM.tscn"
 DeathScreen="*res://Src/Scenes/DeathScreen.tscn"
 
+[debug]
+
+settings/fps/force_fps=50
+
 [display]
 
 window/size/width=800
 window/size/height=608
+window/vsync/use_vsync=false
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
