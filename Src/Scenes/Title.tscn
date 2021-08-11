@@ -22,5 +22,8 @@ margin_top = 416.0
 margin_right = 400.0
 margin_bottom = 446.0
 rect_scale = Vector2( 2, 2 )
-text = "Press \"Shoot\" to start"
+text = "Press \"Shift\" to start"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

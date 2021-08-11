@@ -47,9 +47,10 @@ func _input(event):
 		reload()
 	
 	if event.is_action_pressed("reload_game"):
+		DeathScreen.visible = false
 		get_tree().change_scene("res://Src/Scenes/Title.tscn")
 	
-	if event.is_action_pressed("self_kill"):
+	if event.is_action_pressed("self_kill") and not (get_tree().current_scene.filename == "res://Src/Scenes/Title.tscn" or get_tree().current_scene.filename == "res://Src/Scenes/Menu.tscn"):
 		die(get_tree().current_scene.get_node("Player"))
 
 func teleport(_screen, _position):
